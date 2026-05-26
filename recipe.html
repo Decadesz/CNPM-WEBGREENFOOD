@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/recipe_style.css" />
+    <title>Quản lý công thức - GreenFood</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">GreenFood</div>
+      <ul class="nav-menu">
+        <li><i class="fas fa-home"></i> <a href="">Trang chủ</a></li>
+        <li>
+          <i class="fas fa-store"></i>
+          <a href="quanlyadim-marketplace.html">Sản phẩm</a>
+        </li>
+
+        <li class="active">
+          <i class="fas fa-utensils"></i> <a href="recipe.html">Công thức</a>
+        </li>
+        <li><i class="fas fa-users"></i> <a href="">Khách hàng</a></li>
+      </ul>
+
+      <div
+        style="
+          position: absolute;
+          bottom: 20px;
+          left: 20px;
+          background: #1f2937;
+          padding: 12px;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          width: 220px;
+        "
+      >
+        <div
+          style="
+            width: 45px;
+            height: 45px;
+            background: #4caf50;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+          "
+        >
+          CH
+        </div>
+        <div>
+          <strong>Châu Trung Hòa</strong><br />
+          <small>Admin Lead</small>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+      <h1>Quản lý công thức</h1>
+      <div class="stats">
+        <div class="stat-card">
+          <div>Tổng công thức</div>
+          <div class="stat-value">48</div>
+        </div>
+        <div class="stat-card">
+          <div>Công thức mới</div>
+          <div class="stat-value">5</div>
+        </div>
+        <div class="stat-card">
+          <div>Phổ biến</div>
+          <div style="font-weight: 600">Salad Rau Cải Xanh</div>
+        </div>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Công thức</th>
+              <th>Mô tả</th>
+              <th>Nguyên liệu</th>
+              <th>Thời gian</th>
+              <th>Trạng thái</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Salad Rau Cải Xanh</strong></td>
+              <td>Món salad tươi mát</td>
+              <td>Rau cải xanh, cà chua, dầu oliu</td>
+              <td>15 phút</td>
+              <td><span class="status active">Active</span></td>
+            </tr>
+            <tr>
+              <td><strong>Súp Cà Rốt</strong></td>
+              <td>Súp kem</td>
+              <td>Cà rốt, khoai tây, kem tươi</td>
+              <td>25 phút</td>
+              <td><span class="status low-stock">Low stock</span></td>
+            </tr>
+            <tr>
+              <td><strong>Sinh Tố Táo</strong></td>
+              <td>Thức uống tươi</td>
+              <td>Táo, sữa, mật ong</td>
+              <td>10 phút</td>
+              <td><span class="status active">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="add-form">
+        <h2>Thêm công thức mới</h2>
+
+        <div class="form-grid">
+          <div>
+            <div class="form-group">
+              <label>Tên công thức</label>
+              <input type="text" placeholder="Nhập tên công thức" />
+            </div>
+            <div class="form-group">
+              <label>Mô tả công thức</label>
+              <textarea placeholder="Mô tả ngắn gọn về công thức"></textarea>
+            </div>
+          </div>
+
+          <div>
+            <div class="form-group">
+              <label>Nguyên liệu</label>
+              <textarea
+                placeholder="Liệt kê nguyên liệu (cách nhau bởi dấu phẩy)"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Thời gian chuẩn bị (phút)</label>
+              <input type="number" value="20" />
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-save">Lưu công thức</button>
+      </div>
+    </div>
+  </body>
+</html>

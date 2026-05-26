@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/qlad-sanpham_style.css" />
+    <title>Quản lý sản phẩm - GreenFood</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="sidebar">
+      <div class="logo">GreenFood</div>
+      <ul class="nav-menu">
+        <li><i class="fas fa-home"></i> <a href="">Trang chủ</a></li>
+        <li class="active">
+          <i class="fas fa-store"></i>
+          <a href="quanlyadim-marketplace.html">Sản phẩm</a>
+        </li>
+
+        <li>
+          <i class="fas fa-utensils"></i> <a href="recipe.html">Công thức</a>
+        </li>
+        <li><i class="fas fa-users"></i> <a href="">Khách hàng</a></li>
+      </ul>
+    </div>
+    <div class="main">
+      <header>
+        <h1><strong> Quản lý sản phẩm</strong></h1>
+        <div class="top-right">
+          <div class="search-box">
+            <i class="fas fa-search"></i>
+            <input
+              type="text"
+              placeholder="Search catalog..."
+              style="border: none; outline: none; width: 100%"
+            />
+          </div>
+          <i class="fas fa-bell" style="font-size: 1.4rem; cursor: pointer"></i>
+        </div>
+      </header>
+      <div class="catalog">
+        <div
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+          "
+        >
+          <h2 style="font-size: 1.4rem">Product Catalog</h2>
+          <span
+            style="
+              background: #4caf50;
+              color: white;
+              padding: 5px 15px;
+              border-radius: 20px;
+              font-size: 0.9rem;
+            "
+            >ACTIVE INVENTORY</span
+          >
+        </div>
+
+        <table>
+          <tr>
+            <th>Sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Trạng thái</th>
+            <th>Hoạt động</th>
+          </tr>
+          <tbody>
+            <tr>
+              <td style="display: flex; align-items: center; gap: 12px">
+                <img src="anh cho nay" class="product-img" alt="Apple" />
+                <div>
+                  <strong>Granny Smith Premium</strong><br />
+                  <small>Organic Orchard Block A</small>
+                </div>
+              </td>
+              <td><strong>$4.99 /lb</strong></td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div class="stock-bar" style="width: 180px">
+                    <div class="stock-progress" style="width: 85%"></div>
+                  </div>
+                  <span>420 units</span>
+                </div>
+              </td>
+              <td><span class="status in-stock">IN STOCK</span></td>
+              <td>
+                <i
+                  class="fas fa-edit"
+                  style="color: #4caf50; cursor: pointer"
+                ></i>
+              </td>
+            </tr>
+            <tr>
+              <td style="display: flex; align-items: center; gap: 12px">
+                <img src="anh cho nay" class="product-img" alt="Kale" />
+                <div>
+                  <strong>Wild Tuscan Kale</strong><br />
+                  <small>Hydroponic Greenhouse 4</small>
+                </div>
+              </td>
+              <td><strong>$3.50 /bunch</strong></td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div class="stock-bar" style="width: 180px">
+                    <div class="stock-progress" style="width: 45%"></div>
+                  </div>
+                  <span>124 units</span>
+                </div>
+              </td>
+              <td><span class="status low-stock">LOW STOCK</span></td>
+              <td>
+                <i
+                  class="fas fa-edit"
+                  style="color: #4caf50; cursor: pointer"
+                ></i>
+              </td>
+            </tr>
+            <tr>
+              <td style="display: flex; align-items: center; gap: 12px">
+                <img src="anh cho nay" class="product-img" alt="Tomato" />
+                <div>
+                  <strong>Heirloom Cherry Tomatoes</strong><br />
+                  <small>Heritage Soil Farms</small>
+                </div>
+              </td>
+              <td><strong>$6.25 /box</strong></td>
+              <td>
+                <div style="display: flex; align-items: center; gap: 8px">
+                  <div class="stock-bar" style="width: 180px">
+                    <div class="stock-progress" style="width: 95%"></div>
+                  </div>
+                  <span>890 units</span>
+                </div>
+              </td>
+              <td><span class="status in-stock">IN STOCK</span></td>
+              <td>
+                <i
+                  class="fas fa-edit"
+                  style="color: #4caf50; cursor: pointer"
+                ></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top: 20px; text-align: center; color: #64748b">
+          Showing 1-10 of 48 items
+        </div>
+      </div>
+      <div class="new-product">
+        <h2><i class="fas fa-plus"></i>NEW PRODUCT</h2>
+        <p style="color: #64748b; margin: 8px 0 20px">
+          Add a fresh addition to the Orchard's marketplace.
+        </p>
+
+        <div class="form-grid">
+          <div>
+            <div class="form-group">
+              <label>PRODUCT NAME</label>
+              <input type="text" placeholder="e.g. Organic Honeycrisp Apples" />
+            </div>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px"
+            >
+              <div class="form-group">
+                <label>PRICE ($)</label>
+                <input type="number" value="0.00" />
+              </div>
+              <div class="form-group">
+                <label>QUANTITY</label>
+                <input type="number" value="0" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>CATEGORY</label>
+              <select>
+                <option>Fruits & Berries</option>
+                <option>Vegetables</option>
+                <option>Herbs</option>
+                <option>Organic Box</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label>PRODUCT IMAGERY</label>
+            <div class="image-upload">
+              <i
+                class="fas fa-cloud-upload-alt"
+                style="font-size: 2.5rem; margin-bottom: 10px"
+              ></i>
+              <p>Drop image or browse</p>
+              <small>HIGH-RES JPG/PNG PREFERRED</small>
+            </div>
+          </div>
+        </div>
+
+        <button class="btn-publish">THÊM SẢN PHẨM VÀO CHỢ</button>
+      </div>
+    </div>
+  </body>
+</html>

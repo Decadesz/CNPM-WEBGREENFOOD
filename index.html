@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cửa hàng GreenFood</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css
+    />
+    <link rel="icon" href="icon/leaf.png" />
+    <link rel="stylesheet" href="css/index_style.css" />
+  </head>
+
+  <body>
+    <div id="container">
+      <div id="header">
+        <div class="left">
+          <a href="index.html"
+            ><h2 style="color: rgba(75, 238, 43, 1)">
+              <img src="icon/leaf.png" alt="" /> GreenFood
+            </h2>
+          </a>
+        </div>
+        <div class="middle">
+          <a href="javascript:void(0);" class="icon" onclick="menuBar()"><i class="fa fa-bars"></i></a>
+          <a href="">Rau Củ</a>
+          <a href="">Trái Cây</a>
+          <a href="">Thực Phẩm</a>
+          <a href="">Công Thức</a>
+          <a href="">Gia Vị</a>
+          <a href="" class="sales">Khuyến Mãi</a>
+
+        </div>
+        <div class="right">
+          <div class="search">
+            <img src="icon/search.png" alt="" />
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Tìm kiếm thực phẩm..."
+            />
+          </div>
+          <a href="login.html" class="account"
+            ><img src="icon/human.png" alt="" />Tài khoản</a
+          >
+          <button class="cart"><img src="icon/cart.png" alt="" /></button>
+        </div>
+      </div>
+      <div id="content">
+        <img src="img/intro.png" alt="" />
+        <div class="content-text">
+          <h3>
+            Thực phẩm <span style="color: rgba(75, 238, 43, 1)">xanh</span>
+            <br />
+            Sức khỏe <span style="color: rgba(75, 238, 43, 1)">lành</span>
+          </h3>
+          <p>
+            Hỗ trợ đến 30% các thực phẩm hữu cơ trong tuần <br />
+            cho người dân địa phương hoặc người nước ngoài
+          </p>
+        </div>
+        <div class="btn-content">
+          <button class="btn-1">Mua ngay</button>
+          <button class="btn-2">Xem công thức</button>
+        </div>
+      </div>
+      <iframe
+        id="footer-iframe"
+        src="footer.html"
+        width="100%"
+        height="420"
+        frameborder="0"
+        scrolling="no"
+        title="Footer"
+      >
+      </iframe>
+
+      <script>
+        const iframe = document.getElementById("footer-iframe");
+
+        window.addEventListener("message", function (e) {
+          if (e.data && typeof e.data.height === "number") {
+            iframe.style.height = e.data.height + "px";
+          }
+        });
+      </script>
+    </div>
+  </body>
+</html>

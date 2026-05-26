@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenFood – Lịch sử mua hàng</title>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/lichsu.css">
+  <style>
+  
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAVBAR ═══════════════════ -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <div class="logo-icon">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 000 20"/><path d="M12 2c2.5 4 4 8 4 10s-1.5 6-4 10"/><path d="M2 12h20"/></svg>
+      </div>
+      GreenFood
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#">Rau Củ</a></li>
+      <li><a href="#">Trái Cây</a></li>
+      <li><a href="#">Thực Phẩm</a></li>
+      <li><a href="#">Đồ Uống</a></li>
+      <li><a href="#" class="underline-link">Công thức</a></li>
+      <li><a href="#" class="active">Khuyến Mãi</a></li>
+    </ul>
+
+    <div class="nav-right">
+      <div class="search-box">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" placeholder="Tìm kiếm thực phẩm tươi sống..." />
+      </div>
+      <button class="btn-account">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Tài khoản
+      </button>
+      <div class="cart-btn"><a href="giohang.html">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 001.98 1.61h9.72a2 2 0 001.98-1.61L23 6H6"/></svg>
+        <span class="cart-badge">3</span>
+      </a></div>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════ MAIN ═══════════════════ -->
+<div class="main">
+  <div class="page-body">
+
+    <!-- Heading -->
+    <div class="page-heading">
+      <h1 class="page-title">Lịch sử mua hàng của bạn</h1>
+      <p class="page-sub">Theo dõi và quản lý các đơn hàng tươi sạch từ GreenFood.</p>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="tabs-wrap">
+      <button class="tab-btn active" data-filter="all"      onclick="setTab(this,'all')">Tbt cả đơn</button>
+      <button class="tab-btn"        data-filter="cho"      onclick="setTab(this,'cho')">Chờ thanh toán</button>
+      <button class="tab-btn"        data-filter="danggiao" onclick="setTab(this,'danggiao')">Đang giao</button>
+      <button class="tab-btn"        data-filter="dagiao"   onclick="setTab(this,'dagiao')">Đã giao</button>
+      <button class="tab-btn"        data-filter="dahuy"    onclick="setTab(this,'dahuy')">Đã hủy</button>
+    </div>
+
+    <!-- Orders list -->
+    <div class="orders-list" id="ordersList"></div>
+
+    <!-- Pagination -->
+    <div class="pagination" id="pagination"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <div class="footer-logo-icon">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 000 20"/><path d="M12 2c2.5 4 4 8 4 10s-1.5 6-4 10"/><path d="M2 12h20"/></svg>
+        </div>
+        <span class="footer-logo-text">Green Food</span>
+      </div>
+      <p>Mang trải nghiệm chợ nông sản đến tận cửa nhà bạn. Thuần khiết, hữu cơ và luôn tươi mới.</p>
+      <div class="footer-socials">
+        <button class="social-btn" title="Facebook">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        </button>
+        <button class="social-btn" title="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Liên Kết Nhanh</h4>
+      <ul>
+        <li><a href="#">Trang Trại</a></li>
+        <li><a href="#">Lịch Mùa Vụ</a></li>
+        <li><a href="#">Gói Đăng Ký</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Hỗ Trợ</h4>
+      <ul>
+        <li><a href="#">Chính Sách Giao Hàng</a></li>
+        <li><a href="#">Điều Khoản Dịch Vụ</a></li>
+        <li><a href="#">Chính Sách Bảo Mật</a></li>
+        <li><a href="#">Câu Hỏi Thường Gặp</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Bản Tin</h4>
+      <p class="newsletter-desc">Nhận công thức và ưu đãi qua email của bạn.</p>
+      <input type="email" class="newsletter-input" placeholder="your@email.com" />
+      <button class="btn-subscribe">Đăng Ký</button>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2024 Fresh Market. Bảo lưu mọi quyền. Nguồn gốc địa phương, tầm nhìn toàn cầu.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════ DETAIL MODAL ═══════════════════ -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title" id="modalTitle">Chi tiết đơn hàng</div>
+      <button class="modal-close" onclick="closeModal()">×</button>
+    </div>
+    <div id="modalBody"></div>
+    <div class="modal-footer">
+      <button class="btn-modal-close" onclick="closeModal()">Đóng</button>
+      <button class="btn-modal-rebuy" id="modalRebuyBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+        Mua lại
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ══════════════════════
+     DATA
+  ══════════════════════ */
+  const allOrders = [
+    {
+      id: '#GF12345',
+      date: '15/10/2023',
+      name: 'Cải xoăn Organic, Ớt chuông chuông đỏ và 3 sản phẩm khác',
+      status: 'dagiao',
+      price: 450000,
+      extra: 2,
+      imgs: [
+        'https://images.unsplash.com/photo-1515543237350-b3eea1ec8082?w=120&q=80',
+        'https://images.unsplash.com/photo-1563565375-f3fdfdbefa83?w=120&q=80'
+      ],
+      detail: { 'Mã đơn hàng': '#GF12345', 'Ngày đặt': '15/10/2023', 'Sản phẩm': 'Cải xoăn Organic, Ớt chuông đỏ (+3)', 'Trạng thái': 'Đã giao', 'Tổng cộng': '450.000 VNĐ', 'Địa chỉ giao': '123 Lê Lợi, Q.1, TP.HCM', 'Phương thức TT': 'Thẻ tín dụng' }
+    },
+    {
+      id: '#GF12389',
+      date: '20/10/2023',
+      name: 'Dâu tây Đà Lạt thượng hạng (500g)',
+      status: 'danggiao',
+      price: 125000,
+      extra: 0,
+      imgs: [
+        'https://images.unsplash.com/photo-1464965911861-746a04b4bca6?w=120&q=80'
+      ],
+      detail: { 'Mã đơn hàng': '#GF12389', 'Ngày đặt': '20/10/2023', 'Sản phẩm': 'Dâu tây Đà Lạt thượng hạng (500g)', 'Trạng thái': 'Đang giao', 'Tổng cộng': '125.000 VNĐ', 'Địa chỉ giao': '45 Nguyễn Huệ, Q.1, TP.HCM', 'Phương thức TT': 'COD' }
+    },
+    {
+      id: '#GF12311',
+      date: '05/10/2023',
+      name: 'Combo Rau Củ Xanh Mát tuần 1',
+      status: 'dahuy',
+      price: 320000,
+      extra: 0,
+      imgs: [
+        'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=120&q=80'
+      ],
+      detail: { 'Mã đơn hàng': '#GF12311', 'Ngày đặt': '05/10/2023', 'Sản phẩm': 'Combo Rau Củ Xanh Mát tuần 1', 'Trạng thái': 'Đã hủy', 'Tổng cộng': '320.000 VNĐ', 'Địa chỉ giao': '78 Trần Hưng Đạo, Q.5, TP.HCM', 'Phương thức TT': 'Ví điện tử' }
+    },
+    {
+      id: '#GF12290',
+      date: '28/09/2023',
+      name: 'Bơ Booth chín mềm (túi 4 quả)',
+      status: 'dagiao',
+      price: 89000,
+      extra: 0,
+      imgs: [
+        'https://images.unsplash.com/photo-1523049673857-eb18f1d7b578?w=120&q=80'
+      ],
+      detail: { 'Mã đơn hàng': '#GF12290', 'Ngày đặt': '28/09/2023', 'Sản phẩm': 'Bơ Booth chín mềm (túi 4 quả)', 'Trạng thái': 'Đã giao', 'Tổng cộng': '89.000 VNĐ', 'Địa chỉ giao': '123 Lê Lợi, Q.1, TP.HCM', 'Phương thức TT': 'Thẻ tín dụng' }
+    },
+    {
+      id: '#GF12201',
+      date: '10/09/2023',
+      name: 'Rau muống sạch, cà chua cherry và 1 sản phẩm khác',
+      status: 'cho',
+      price: 67000,
+      extra: 1,
+      imgs: [
+        'https://images.unsplash.com/photo-1540420773420-3366772f4999?w=120&q=80',
+        'https://images.unsplash.com/photo-1592924357228-91a4daadcfea?w=120&q=80'
+      ],
+      detail: { 'Mã đơn hàng': '#GF12201', 'Ngày đặt': '10/09/2023', 'Sản phẩm': 'Rau muống sạch, Cà chua cherry (+1)', 'Trạng thái': 'Chờ thanh toán', 'Tổng cộng': '67.000 VNĐ', 'Địa chỉ giao': '20 Bùi Thị Xuân, Q.1, TP.HCM', 'Phương thức TT': 'Chưa thanh toán' }
+    },
+    {
+      id: '#GF12180',
+      date: '01/09/2023',
+      name: 'Thanh long ruột đỏ Long An (1kg)',
+      status: 'dagiao',
+      price: 55000,
+      extra: 0,
+      imgs: [
+        'https://images.unsplash.com/photo-1526470498-9ae73c665de8?w=120&q=80'
+      ],
+      detail: { 'Mã đơn hàng': '#GF12180', 'Ngày đặt': '01/09/2023', 'Sản phẩm': 'Thanh long ruột đỏ Long An (1kg)', 'Trạng thái': 'Đã giao', 'Tổng cộng': '55.000 VNĐ', 'Địa chỉ giao': '5 Phạm Ngũ Lão, Q.1, TP.HCM', 'Phương thức TT': 'Ví điện tử' }
+    },
+  ];
+
+  const STATUS_INFO = {
+    dagiao:   { label: 'Đã giao',          cls: 'status-dagiao' },
+    danggiao: { label: 'Đang giao',        cls: 'status-danggiao' },
+    dahuy:    { label: 'Đã hủy',           cls: 'status-dahuy' },
+    cho:      { label: 'Chờ thanh toán',   cls: 'status-cho' }
+  };
+
+  const ITEMS_PER_PAGE = 3;
+  let currentFilter = 'all';
+  let currentPage   = 1;
+
+  const fmt = n => n.toLocaleString('vi-VN') + ' VNĐ';
+
+  /* ══════════════════════
+     FILTER + PAGINATION
+  ══════════════════════ */
+  function filtered() {
+    if (currentFilter === 'all') return allOrders;
+    return allOrders.filter(o => o.status === currentFilter);
+  }
+
+  function setTab(el, filter) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    el.classList.add('active');
+    currentFilter = filter;
+    currentPage   = 1;
+    render();
+  }
+
+  /* ══════════════════════
+     RENDER ORDERS
+  ══════════════════════ */
+  function render() {
+    const list  = filtered();
+    const total = Math.ceil(list.length / ITEMS_PER_PAGE);
+    const page  = list.slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE);
+
+    const wrap = document.getElementById('ordersList');
+
+    if (!page.length) {
+      wrap.innerHTML = `<div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#d1d5db" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+        <p>Không có đơn hàng nào.</p>
+      </div>`;
+    } else {
+      wrap.innerHTML = page.map(o => orderCardHTML(o)).join('');
+    }
+
+    renderPagination(total);
+  }
+
+  function orderCardHTML(o) {
+    const si = STATUS_INFO[o.status];
+    const hasTwo  = o.imgs.length >= 2;
+    const hasMore = o.extra > 0;
+
+    const imgStack = hasTwo ? `
+      <img class="order-img-stack" src="${o.imgs[1]}" alt="" onerror="this.style.background='#e5e7eb';this.removeAttribute('src')" />
+      ${hasMore ? `<div class="order-img-more">+${o.extra}</div>` : ''}
+    ` : '';
+
+    // Actions depending on status
+    let actions = '';
+    if (o.status === 'danggiao') {
+      actions = `
+        <button class="btn-track" onclick="showToast('📦 Đang theo dõi đơn ${o.id}...')">Theo dõi đơn</button>
+        <button class="btn-detail" onclick="openDetail('${o.id}')">Xem chi tiết</button>
+      `;
+    } else if (o.status === 'dahuy') {
+      actions = `
+        <button class="btn-detail-outline" onclick="openDetail('${o.id}')">Xem chi tiết</button>
+        <button class="btn-rebuy" onclick="rebuy('${o.id}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          Mua lại
+        </button>
+      `;
+    } else {
+      actions = `
+        <button class="btn-detail-outline" onclick="openDetail('${o.id}')">Xem chi tiết</button>
+        <button class="btn-rebuy" onclick="rebuy('${o.id}')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-9.36L1 10"/></svg>
+          Mua lại
+        </button>
+      `;
+    }
+
+    return `
+      <div class="order-card">
+        <div class="order-imgs">
+          <img class="order-img-main" src="${o.imgs[0]}" alt="${o.name}"
+            onerror="this.style.background='#e5e7eb';this.removeAttribute('src')" />
+          ${imgStack}
+        </div>
+
+        <div class="order-info">
+          <div class="order-meta">
+            <span class="order-id">${o.id}</span>
+            <span class="order-dot">•</span>
+            <span class="order-date">Đặt ngày: ${o.date}</span>
+          </div>
+          <div class="order-name">${o.name}</div>
+          <div class="order-status-row">
+            <span class="status-badge ${si.cls}">
+              <span class="dot"></span>${si.label}
+            </span>
+            <span class="order-price">${fmt(o.price)}</span>
+          </div>
+        </div>
+
+        <div class="order-actions">${actions}</div>
+      </div>
+    `;
+  }
+
+  /* ══════════════════════
+     PAGINATION
+  ══════════════════════ */
+  function renderPagination(total) {
+    const pg = document.getElementById('pagination');
+    if (total <= 1) { pg.innerHTML = ''; return; }
+
+    let html = `<button class="page-arrow" onclick="gotoPage(${currentPage - 1})" ${currentPage === 1 ? 'disabled style="opacity:.4;cursor:default"' : ''}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>`;
+
+    for (let i = 1; i <= total; i++) {
+      html += `<button class="page-btn ${i === currentPage ? 'active' : ''}" onclick="gotoPage(${i})">${i}</button>`;
+    }
+
+    html += `<button class="page-arrow" onclick="gotoPage(${currentPage + 1})" ${currentPage === total ? 'disabled style="opacity:.4;cursor:default"' : ''}>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>`;
+
+    pg.innerHTML = html;
+  }
+
+  function gotoPage(p) {
+    const list  = filtered();
+    const total = Math.ceil(list.length / ITEMS_PER_PAGE);
+    if (p < 1 || p > total) return;
+    currentPage = p;
+    render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  /* ══════════════════════
+     MODAL
+  ══════════════════════ */
+  function openDetail(id) {
+    const o = allOrders.find(x => x.id === id);
+    if (!o) return;
+    document.getElementById('modalTitle').textContent = `Chi tiết đơn hàng ${o.id}`;
+    document.getElementById('modalBody').innerHTML = Object.entries(o.detail).map(([k, v]) => `
+      <div class="modal-row"><span class="label">${k}</span><span class="value">${v}</span></div>
+    `).join('');
+
+    const rebuyBtn = document.getElementById('modalRebuyBtn');
+    if (o.status === 'danggiao' || o.status === 'cho') {
+      rebuyBtn.style.display = 'none';
+    } else {
+      rebuyBtn.style.display = 'flex';
+      rebuyBtn.onclick = () => { closeModal(); rebuy(id); };
+    }
+
+    document.getElementById('detailModal').classList.add('open');
+  }
+
+  function closeModal() {
+    document.getElementById('detailModal').classList.remove('open');
+  }
+
+  document.getElementById('detailModal').addEventListener('click', e => {
+    if (e.target === document.getElementById('detailModal')) closeModal();
+  });
+
+  /* ══════════════════════
+     REBUY
+  ══════════════════════ */
+  function rebuy(id) {
+    const o = allOrders.find(x => x.id === id);
+    showToast(`🛒 Đã thêm sản phẩm từ đơn ${o.id} vào giỏ hàng!`);
+  }
+
+  /* ══════════════════════
+     TOAST
+  ══════════════════════ */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(t._timer);
+    t._timer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  /* ══════════════════════
+     INIT
+  ══════════════════════ */
+  render();
+</script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GreenFood – Customers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/quanlyadmin-nguoidung.css">
+ <style>
+   
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════ SIDEBAR ═══════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-logo">GreenFood</div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-item" onclick="setActive(this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      Dashboard
+    </div>
+    <div class="nav-item" onclick="setActive(this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+      Marketplace
+    </div>
+    <div class="nav-item" onclick="setActive(this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Recipes
+    </div>
+    <div class="nav-item active" onclick="setActive(this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Customers
+    </div>
+    <div class="nav-item" onclick="setActive(this)">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+      Revenue
+    </div>
+  </nav>
+
+  <div class="sidebar-user">
+    <div class="user-avatar">AD</div>
+    <div class="user-info">
+      <div class="user-name">Ten Admin</div>
+      <div class="user-role">Chuc vu Admin</div>
+    </div>
+    <button class="settings-btn" title="Settings">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>
+    </button>
+  </div>
+</aside>
+
+<!-- ═══════════════ MAIN ═══════════════ -->
+<div class="main">
+  <div class="content">
+    <h1 class="page-title">Customers</h1>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <div class="stat-value" id="statTotal">150</div>
+        <div class="stat-label">Total Customers</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statActive">90</div>
+        <div class="stat-label">Active</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statPending">40</div>
+        <div class="stat-label">Pending</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value" id="statInactive">20</div>
+        <div class="stat-label">Inactive</div>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <div class="table-card">
+      <div class="table-toolbar">
+        <div class="search-input-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" class="search-input" id="searchInput" placeholder="Search by name or email" oninput="filterTable()" />
+        </div>
+        <select class="status-filter" id="statusFilter" onchange="filterTable()">
+          <option value="">All Status</option>
+          <option value="Active">Active</option>
+          <option value="Pending">Pending</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Orders</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="customerTableBody"></tbody>
+      </table>
+
+      <div class="table-footer">
+        <button class="btn-view-all" onclick="showAll()">View All Customers</button>
+      </div>
+    </div>
+
+    <!-- Add New Customer -->
+    <div class="form-card">
+      <div class="form-title">Add New Customer</div>
+
+      <div class="form-group">
+        <label class="form-label" for="newName">Name</label>
+        <input type="text" id="newName" class="form-input" placeholder="e.g. Nguyen Van A" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="newEmail">Email</label>
+        <input type="email" id="newEmail" class="form-input" placeholder="example@email.com" />
+      </div>
+
+      <div class="form-group">
+        <label class="form-label" for="newStatus">Status</label>
+        <select id="newStatus" class="form-select">
+          <option value="Active">Active</option>
+          <option value="Pending">Pending</option>
+          <option value="Inactive">Inactive</option>
+        </select>
+      </div>
+
+      <button class="btn-add" onclick="addCustomer()">Add Customer</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="page-footer">
+    <div class="footer-brand">
+      <strong>Green Food</strong><br>
+      © 2026 Green Food Smart AI Chef
+    </div>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Contact Support</a>
+    </div>
+  </footer>
+</div>
+
+<!-- ═══════════════ EDIT MODAL ═══════════════ -->
+<div class="modal-overlay" id="editModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Edit Customer</div>
+      <button class="modal-close" onclick="closeModal('editModal')">×</button>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Name</label>
+      <input type="text" id="editName" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Email</label>
+      <input type="email" id="editEmail" class="form-input" />
+    </div>
+    <div class="form-group">
+      <label class="form-label">Status</label>
+      <select id="editStatus" class="form-select">
+        <option value="Active">Active</option>
+        <option value="Pending">Pending</option>
+        <option value="Inactive">Inactive</option>
+      </select>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal('editModal')">Cancel</button>
+      <button class="btn-save" onclick="saveEdit()">Save Changes</button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ VIEW MODAL ═══════════════ -->
+<div class="modal-overlay" id="viewModal">
+  <div class="modal">
+    <div class="modal-header">
+      <div class="modal-title">Customer Details</div>
+      <button class="modal-close" onclick="closeModal('viewModal')">×</button>
+    </div>
+    <div id="viewContent" style="font-size:13.5px;line-height:2;color:var(--text-mid);"></div>
+    <div class="modal-footer">
+      <button class="btn-cancel" onclick="closeModal('viewModal')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script>
+  /* ── Data ── */
+  let customers = [
+    { id: '#C001', name: 'Nguyen Văn A', email: 'a.nguyen@example.com', orders: 5,  status: 'Active'   },
+    { id: '#C002', name: 'Trần Thị B',   email: 'b.tran@example.com',   orders: 2,  status: 'Pending'  },
+    { id: '#C003', name: 'Lê Văn C',     email: 'c.le@example.com',     orders: 0,  status: 'Inactive' },
+  ];
+
+  let idCounter = 4;
+  let editingId = null;
+  let showingAll = false;
+
+  const PREVIEW_COUNT = 3;
+
+  /* ── Render table ── */
+  function renderTable(list) {
+    const tbody = document.getElementById('customerTableBody');
+    const search = document.getElementById('searchInput').value.toLowerCase();
+
+    if (!list.length) {
+      tbody.innerHTML = '<tr class="no-results"><td colspan="6">Không tìm thấy khách hàng nào.</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = list.map(c => {
+      const badgeClass = c.status === 'Active' ? 'badge-active' : c.status === 'Pending' ? 'badge-pending' : 'badge-inactive';
+      const hl = t => search ? t.replace(new RegExp(`(${search})`, 'gi'), '<mark>$1</mark>') : t;
+      return `
+        <tr>
+          <td class="customer-id">${c.id}</td>
+          <td class="customer-name">${hl(c.name)}</td>
+          <td>${hl(c.email)}</td>
+          <td>${c.orders}</td>
+          <td><span class="badge ${badgeClass}">${c.status}</span></td>
+          <td>
+            <div class="action-btns">
+              <button class="btn-edit"   onclick="openEdit('${c.id}')">Edit</button>
+              <button class="btn-view"   onclick="openView('${c.id}')">View</button>
+              <button class="btn-delete" onclick="deleteCustomer('${c.id}')">Delete</button>
+            </div>
+          </td>
+        </tr>`;
+    }).join('');
+  }
+
+  function filterTable() {
+    const search = document.getElementById('searchInput').value.toLowerCase();
+    const status = document.getElementById('statusFilter').value;
+    let filtered = customers.filter(c => {
+      const matchSearch = c.name.toLowerCase().includes(search) || c.email.toLowerCase().includes(search);
+      const matchStatus = !status || c.status === status;
+      return matchSearch && matchStatus;
+    });
+    showingAll = true;
+    renderTable(filtered);
+  }
+
+  function showAll() {
+    showingAll = true;
+    document.getElementById('searchInput').value = '';
+    document.getElementById('statusFilter').value = '';
+    renderTable(customers);
+  }
+
+  function updateStats() {
+    document.getElementById('statTotal').textContent   = customers.length;
+    document.getElementById('statActive').textContent  = customers.filter(c => c.status === 'Active').length;
+    document.getElementById('statPending').textContent = customers.filter(c => c.status === 'Pending').length;
+    document.getElementById('statInactive').textContent= customers.filter(c => c.status === 'Inactive').length;
+  }
+
+  /* ── Add customer ── */
+  function addCustomer() {
+    const name   = document.getElementById('newName').value.trim();
+    const email  = document.getElementById('newEmail').value.trim();
+    const status = document.getElementById('newStatus').value;
+
+    if (!name) { showToast('⚠️ Vui lòng nhập tên khách hàng.'); return; }
+    if (!email || !email.includes('@')) { showToast('⚠️ Vui lòng nhập email hợp lệ.'); return; }
+
+    const newId = `#C${String(idCounter).padStart(3,'0')}`;
+    idCounter++;
+
+    customers.push({ id: newId, name, email, orders: 0, status });
+
+    document.getElementById('newName').value = '';
+    document.getElementById('newEmail').value = '';
+    document.getElementById('newStatus').value = 'Active';
+
+    updateStats();
+    filterTable();
+    showToast(`✅ Đã thêm khách hàng "${name}" thành công!`);
+  }
+
+  /* ── Delete ── */
+  function deleteCustomer(id) {
+    if (!confirm('Bạn có chắc muốn xoá khách hàng này?')) return;
+    const c = customers.find(x => x.id === id);
+    customers = customers.filter(x => x.id !== id);
+    updateStats();
+    filterTable();
+    showToast(`🗑️ Đã xoá "${c.name}".`);
+  }
+
+  /* ── Edit modal ── */
+  function openEdit(id) {
+    const c = customers.find(x => x.id === id);
+    if (!c) return;
+    editingId = id;
+    document.getElementById('editName').value   = c.name;
+    document.getElementById('editEmail').value  = c.email;
+    document.getElementById('editStatus').value = c.status;
+    openModal('editModal');
+  }
+
+  function saveEdit() {
+    const c = customers.find(x => x.id === editingId);
+    if (!c) return;
+    c.name   = document.getElementById('editName').value.trim() || c.name;
+    c.email  = document.getElementById('editEmail').value.trim() || c.email;
+    c.status = document.getElementById('editStatus').value;
+    closeModal('editModal');
+    updateStats();
+    filterTable();
+    showToast('✅ Đã cập nhật thông tin khách hàng.');
+  }
+
+  /* ── View modal ── */
+  function openView(id) {
+    const c = customers.find(x => x.id === id);
+    if (!c) return;
+    const badgeClass = c.status === 'Active' ? 'badge-active' : c.status === 'Pending' ? 'badge-pending' : 'badge-inactive';
+    document.getElementById('viewContent').innerHTML = `
+      <table style="width:100%;border-collapse:collapse;">
+        <tr><td style="color:var(--text-sub);width:40%">Customer ID</td><td><strong>${c.id}</strong></td></tr>
+        <tr><td style="color:var(--text-sub)">Name</td><td>${c.name}</td></tr>
+        <tr><td style="color:var(--text-sub)">Email</td><td>${c.email}</td></tr>
+        <tr><td style="color:var(--text-sub)">Orders</td><td>${c.orders}</td></tr>
+        <tr><td style="color:var(--text-sub)">Status</td><td><span class="badge ${badgeClass}">${c.status}</span></td></tr>
+      </table>`;
+    openModal('viewModal');
+  }
+
+  /* ── Modal helpers ── */
+  function openModal(id)  { document.getElementById(id).classList.add('open'); }
+  function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+  });
+
+  /* ── Sidebar active ── */
+  function setActive(el) {
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    el.classList.add('active');
+  }
+
+  /* ── Toast ── */
+  function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  /* ── Init ── */
+  updateStats();
+  renderTable(customers.slice(0, PREVIEW_COUNT));
+</script>
+</body>
+</html>
